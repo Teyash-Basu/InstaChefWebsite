@@ -1,0 +1,199 @@
+{% load static %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Request Recipe</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <!-- Favicon -->
+    <link href="{% static 'img/favicon.ico' %}" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="{% static 'https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap' %}"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="{% static 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css' %}"
+        rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <!-- <link href="{% static 'css/style1.css'%}" rel="stylesheet"> -->
+    <link href="{% static 'css/font-awesome/all.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css'%}" rel="stylesheet" type="text/css">
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="{% static '/lib/easing/easing.min.js' %}"></script>
+    <script src="{% static '/lib/owlcarousel/owl.carousel.js' %}"></script>
+    <script src="{% static '/js/ingredients-script.js' %}"></script>
+
+</head>
+
+<body style="max-width: 100%;overflow-x: hidden;">
+
+    <div class="row align-items-center py-3 px-xl-5" id="parent-topbar">
+        <nav class="navbar navbar-light bg-light">
+            <div class="container">
+                <a class="navbar-brand" href="/">
+                    <img src="{% static 'img/Logo1.png'%}" alt="Logo" width="210px" height="70px">
+                </a>
+            </div>
+        </nav>
+        <div class="col-lg-9">
+            <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0">
+                <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                    <div class="navbar-nav mr-auto py-0">
+                        <a href="/" class="nav-item nav-link">Home</a>
+                        <a href="/requestrecipe" class="nav-item nav-link">Request Recipe</a>
+                        <a href="/cart" class="nav-item nav-link">Ingredients for Pantry</a>
+                        <a href="/contact" class="nav-item nav-link">Contact</a>
+                        
+                </div>
+            </nav>
+        </div>
+        </div>
+    
+ <!-- Page Header Start -->
+ <div class="container-fluid bg-secondary mb-5">
+    <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 200px;background-color :rgb(255, 115, 0); font-family:Georgia, 'Times New Roman', Times, serif;">
+        <h1 class="font-weight-semi-bold text-uppercase my-3">Request Recipe</h1>
+    </div>
+</div>
+<!-- Page Header End -->
+
+
+<!-- Form  -->
+<!-- <div id="mainform" class="mainform needs-validation" novalidate method="POST">
+    
+    <form method="post" class="main-form needs-validation" novalidate>
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="rrecipe_name">Name of the Requested Recipe</label>
+            <input type="text" name="rrec_name" id="rrec_name" 
+                class="form-control" required>
+            <small class="form-text text-muted">
+                Enter the name of your requested recipe here.
+            </small>
+            <div class="invalid-feedback">Please fill the field before submission.</div>
+        </div>
+        <div>
+            
+            <label for="rrec_type" class="form-label">Recipe Type</label>
+            <select class="form-control" name="rrec_type" id="rrec_type" required>
+                <option value="veg">Veg</option>
+                <option value="non veg">Non Veg</option>
+                <option value="vegan">Vegan</option>
+            </select>
+        </div>
+        <div>
+            <label for="rcat_name" class="form-label">Category Name</label>
+            <select class="form-control" name="rcat_name" id="rcat_name" required> 
+                {{form}}
+            </select>
+
+            <select class="form-control" name="rcat_name" id="rcat_name" required>
+                <option value="North Indian">North Indian</option>
+                <option value="Chinese">Chinese</option>
+                <option value="South Indian">South Indian</option>
+            </select> 
+
+        </div>
+        <br>
+       <button type="submit" class="btn btn-primary" color>Submit</button>
+
+    </form>  -->
+    <div class="container pt-4">
+        {% include 'messages.html' %}
+    <form action="" method="post">
+        {% csrf_token %}
+        {{form | crispy}}
+        <input type="submit">
+    </form> 
+</div>
+
+
+
+    <!-- Footer Start -->
+    <div class="container-fluid bg-secondary text-dark mt-5 pt-5">
+        <div class="row px-xl-5 pt-5">
+            <div class="col-lg-4 col-md-12 mb-5 pr-3 pr-xl-5">
+                <a class="navbar-brand" href="/">
+                    <img src="{% static 'img/Logo1.png' %}" alt="Logo" width="210px" height="70px">
+                </a>
+                <br><br>
+                <!--
+                <p></i>A personalized cooking website which  </p>
+                <p>not only helps you in cooking but also </p>
+                <p>allows you to post recipes.</p>-->
+                <p>1st Main S.G Palya, Benagluru</p>
+                <p>InstaChef@gmail.com</p>
+                <p>+012 345 67890</p>
+            </div>
+            <div class="col-lg-8 col-md-12">
+                <div class="row">
+                    <div class="col-md-4 mb-5">
+                        <h5 class="font-weight-bold text-dark mb-4">Quick Links</h5>
+                        <div class="d-flex flex-column justify-content-start">
+                            <a class="text-dark mb-2" href="/"><i class="fa fa-angle-right mr-2"></i>Home</a>
+
+                            <a class="text-dark mb-2" href="/cart"><i class="fa fa-angle-right mr-2"></i>Shopping
+                                Cart</a>
+                            <!-- <a class="text-dark mb-2" href="/checkout"><i
+                                    class="fa fa-angle-right mr-2"></i>Checkout</a> -->
+                            <a class="text-dark" href="/contact"><i class="fa fa-angle-right mr-2"></i>Contact Us</a>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 mb-5">
+                        <h5 class="font-weight-bold text-dark mb-4">Contact Us</h5>
+                        <form action="">
+                            <div class="form-group">
+                                <input type="text" class="form-control border-0 py-4" placeholder="Your Name"
+                                    required="required" />
+                            </div>
+                            <div class="form-group">
+                                <input type="email" class="form-control border-0 py-4" placeholder="Your Email"
+                                    required="required" />
+                            </div>
+                            <div>
+                                <button class="btn btn-primary btn-block border-0 py-3" type="submit">Subscribe
+                                    Now</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Foterbar End -->
+
+            <!-- <script>
+                var form=document.querySelector('.needs-validation');
+                form.addEventListener('submit', function(event)
+                {
+                    if(form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+
+                    else {
+                        window.alert('Form submitted sucessfully!');
+                    }
+
+                    form.ClassList.add('was-validated');
+                })
+            </script> -->
+
+</body>
+
+</html>
